@@ -74,22 +74,37 @@ my factoring program. needs to be updated with variables but is short
     
     int dividerResult = 10;
     int factorResult = 10;
+    int factorResult2 = 10;
+    int counter = 0;
+    int[] dividerArray = new int[20];
     
     
    
     while ( dividerResult > 1 && factorResult > 1 ) {
       
-      dividerResult = dividerFinder(userNum); 
+      //Method used
+      dividerResult = dividerFinder(userNum);  
       factorResult = factorFinder(userNum);
       
-      if(dividerResult != 1 && factorResult != 1) {
-        System.out.println("dividerFinder: " + dividerResult);
-        System.out.println("factorFinder: " + factorResult + "\n");
+      //Ends factoring keeping factors equaling '1' out
+      if(dividerResult != 1 && factorResult != 1) { 
+        System.out.println("factorResult: " + factorResult);
+        System.out.println("dividerResult: " + dividerResult + "\n");
+        
+        factorResult2 = factorResult;
+        dividerArray[counter] = dividerResult;
+        counter = counter + 1;
       }
       
+      //Keeps factoring going w/simplified numbers
       userNum = factorResult;
     
     }
+    
+    //gets last factor
+    dividerArray[counter] = factorResult2;
+    
+   
      
     
   }
@@ -99,18 +114,4 @@ my factoring program. needs to be updated with variables but is short
 
 
 
-/*
- * int divider = 1;
-    int factor = 1;
-        
-    //Gets first multiple ( not 1 and userNum )
-    while ( divider <= userNum && divider <= factor && divider != -100 ){
-      factor = userNum / divider;
-      if ( (factor * divider) == userNum && divider > 1 ) { 
-        System.out.println(factor + "\t" + divider);
-        divider = -100;
-      }
-      divider = divider + 1; 
-    }
-    
- */
+
