@@ -1,7 +1,7 @@
-import java.util.Scanner;
+ import java.util.Scanner;
 
 
-public class Testing {
+public class SqRootSimplifier {
   public static final Scanner CONSOLE = new Scanner(System.in);
   //====================================DIVIDERFINDER==============================
   public static int dividerFinder(int userNum){
@@ -70,9 +70,26 @@ my factoring program. needs to be updated with variables but is short
 
     System.out.println("Prompt: ");
     int userNum = CONSOLE.nextInt();
+
+    
+    int dividerResult = 10;
+    int factorResult = 10;
+    
+    
    
-    System.out.println("dividerFinder: " + dividerFinder(userNum));
-    System.out.println("factorFinder: " + factorFinder(userNum) + "\n");
+    while ( dividerResult > 1 && factorResult > 1 ) {
+      
+      dividerResult = dividerFinder(userNum); 
+      factorResult = factorFinder(userNum);
+      
+      if(dividerResult != 1 && factorResult != 1) {
+        System.out.println("dividerFinder: " + dividerResult);
+        System.out.println("factorFinder: " + factorResult + "\n");
+      }
+      
+      userNum = factorResult;
+    
+    }
      
     
   }
