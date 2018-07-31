@@ -77,6 +77,7 @@ my factoring program. needs to be updated with variables but is short
     int factorResult2 = 10;
     int counter = 0;
     int[] dividerArray = new int[20];
+    int[] counterArray = new int[20];
     
     
    
@@ -104,8 +105,35 @@ my factoring program. needs to be updated with variables but is short
     //gets last factor
     dividerArray[counter] = factorResult2;
     
-   
-     
+    int counter2 = 0; //new counter declared
+    int occurence = 0;
+    
+    for(int i = 0; i <= counter; i++) {
+      counter2 = 0;
+      occurence = 0;
+      System.out.print(dividerArray[i] + ": ");
+      
+      
+      for(int j = 0; j <= counter; j++) {
+        System.out.print(dividerArray[j] + " ");
+        
+        //IMPORTANT IN counterArray:     Tens place = factor, ones place = times of occurence
+        if(dividerArray[i] == dividerArray[j]) { 
+          counterArray[counter2] = (dividerArray[i] * 10) + (occurence + 1);
+          occurence = occurence + 1;
+          
+        }
+      }
+      
+      System.out.println();
+      System.out.println("CounterArray: " + counterArray[counter2] + "\n");
+    }
+    
+    
+    
+    
+    
+    
     
   }
 }
